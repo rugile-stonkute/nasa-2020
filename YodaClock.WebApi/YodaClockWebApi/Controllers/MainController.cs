@@ -18,7 +18,7 @@ namespace YodaClock.Controllers
         [HttpGet]
         public string Get()
         {
-            return "Hello World";
+            return "Hello World!";
         }
     }
 }
