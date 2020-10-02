@@ -1,0 +1,8 @@
+{
+  "runtimeOptions": {
+    "additionalProbingPaths": [
+      "C:\\Users\\Vaidotas\\.dotnet\\store\\|arch|\\|tfm|",
+      "C:\\Users\\Vaidotas\\.nuget\\packages"
+    ]
+  }
+}

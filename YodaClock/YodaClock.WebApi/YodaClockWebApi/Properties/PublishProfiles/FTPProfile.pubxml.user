@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+This file is used by the publish/package process of your Web project. You can customize the behavior of this process
+by editing this MSBuild file. In order to learn more about this please visit https://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+    <EncryptedPassword>AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAASKALkRZ/MkGnkvDM5sGmcQAAAAACAAAAAAAQZgAAAAEAACAAAADN91PccB0fFXdwl9kaT0t6WUNFDgf8BI0KbcJhJ1iJWQAAAAAOgAAAAAIAACAAAAAewY9MEBeYYfkUSeh5vzgwYI8A/sEXCooujysh4amSUSAAAACjq3aaV/rI+BQ4yrcdwaHPDEnKRWwmuvS93qJGZvPxb0AAAAAT6EvyoS2eGxbIUJheV3zG2Wqn7xsXS2uG7W3rN7KPx+s7Pxj/hoxI3MLgQouQ7NvmYIryyDzY2yK+VOJ3Njmy</EncryptedPassword>
+    <_PublishTargetUrl>ftp://yodaclock.somee.com/www.yodaclock.somee.com/</_PublishTargetUrl>
+  </PropertyGroup>
+</Project>

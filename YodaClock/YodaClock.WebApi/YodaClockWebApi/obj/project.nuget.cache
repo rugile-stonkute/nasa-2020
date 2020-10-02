@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "402W0zqLuHBiHI61CcUPuxO2+Hfb/OzUkzsprdQ9PlsexHJ02tWy7pLD7wva6Hlf7Q+2cr45nMSGh35Avc4dag==",
+  "dgSpecHash": "xOBRaab6vJPV2kdFd3JyKs+zBMKAjnayXaE4KX/2vXt5ZFZ+FBE+orht8gcdY4OGSdefkhX4hg/PTQnoV4xCzw==",
   "success": true,
-  "projectFilePath": "E:\\YodaClock\\YodaClock.WebApi\\YodaClockWebApi\\YodaClockWebApi.csproj",
+  "projectFilePath": "C:\\Users\\Vaidotas\\Documents\\GitHub\\nasa-2020\\YodaClock\\YodaClock.WebApi\\YodaClockWebApi\\YodaClockWebApi.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

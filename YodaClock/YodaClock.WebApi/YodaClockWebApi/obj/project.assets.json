@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\YodaClock\\YodaClock.WebApi\\YodaClockWebApi\\YodaClockWebApi.csproj",
+      "projectUniqueName": "C:\\Users\\Vaidotas\\Documents\\GitHub\\nasa-2020\\YodaClock\\YodaClock.WebApi\\YodaClockWebApi\\YodaClockWebApi.csproj",
       "projectName": "YodaClockWebApi",
-      "projectPath": "E:\\YodaClock\\YodaClock.WebApi\\YodaClockWebApi\\YodaClockWebApi.csproj",
+      "projectPath": "C:\\Users\\Vaidotas\\Documents\\GitHub\\nasa-2020\\YodaClock\\YodaClock.WebApi\\YodaClockWebApi\\YodaClockWebApi.csproj",
       "packagesPath": "C:\\Users\\Vaidotas\\.nuget\\packages\\",
-      "outputPath": "E:\\YodaClock\\YodaClock.WebApi\\YodaClockWebApi\\obj\\",
+      "outputPath": "C:\\Users\\Vaidotas\\Documents\\GitHub\\nasa-2020\\YodaClock\\YodaClock.WebApi\\YodaClockWebApi\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Vaidotas\\AppData\\Roaming\\NuGet\\NuGet.Config",

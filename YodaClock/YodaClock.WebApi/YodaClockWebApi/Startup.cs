@@ -25,6 +25,13 @@ namespace YodaClockWebApi
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddCors(c =>
+            {
+                c.AddPolicy("Cors", options =>
+                options.AllowAnyOrigin()
+                        .AllowAnyHeader()
+                        .AllowAnyMethod());
+            });
 
             services.AddControllers();
         }
@@ -37,11 +44,10 @@ namespace YodaClockWebApi
                 app.UseDeveloperExceptionPage();
             }
 
-            app.UseCors();
-
             app.UseHttpsRedirection();
 
             app.UseRouting();
+            app.UseCors("Cors");
 
             app.UseAuthorization();
 

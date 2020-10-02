@@ -7,8 +7,8 @@ using Microsoft.Extensions.Logging;
 namespace YodaClock.Controllers
 {
     [ApiController]
-    [EnableCors]
     [Route("")]
+    [EnableCors("Cors")]
     public class MainController : ControllerBase
     {
         public MainController()
