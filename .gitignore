@@ -3,3 +3,8 @@
 ################################################################################
 
 /YodaClock/.vs/YodaClock/DesignTimeBuild/.dtbcache.v2
+/YodaClock/bin/Debug/netcoreapp3.1
+/YodaClock/obj/Debug/netcoreapp3.1
+/YodaClock.WebApi/YodaClockWebApi/bin/Release/netcoreapp3.1
+/YodaClock.WebApi/YodaClockWebApi/obj/Release/netcoreapp3.1
+/YodaClock.WebApi/YodaClockWebApi/Properties/PublishProfiles
