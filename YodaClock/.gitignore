@@ -1,7 +1,0 @@
-﻿################################################################################
-# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
-################################################################################
-
-/YodaClock/.vs/YodaClock/DesignTimeBuild/.dtbcache.v2
-/YodaClock/.vs/YodaClock/v16/.suo
-/YodaClock.WebApi/YodaClockWebApi/obj/Debug/netcoreapp3.1
