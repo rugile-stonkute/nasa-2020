@@ -1,7 +1,21 @@
 <template>
   <div class="MainPage">
-    {{body}}
-    <b-button @click="clickAction">Click</b-button>
+    <b-container class="container">
+    <b-row>
+      <b-col cols="9">
+        <div class="block">
+          looo
+        </div>
+      </b-col>
+      <b-col cols="3">
+        <div class="block">
+          looo
+        </div>
+      </b-col>
+    </b-row>
+  </b-container>
+    <!-- {{body}} -->
+    <!-- <b-button @click="clickAction">Click</b-button> -->
   </div>
 </template>
 
