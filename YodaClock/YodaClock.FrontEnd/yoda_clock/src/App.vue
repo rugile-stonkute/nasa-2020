@@ -1,16 +1,18 @@
 <template>
   <div id="app">
-    <!-- <img alt="Logo" src="./assets/logo.png"> -->
+    <Header />
     <MainPage />
   </div>
 </template>
 
 <script>
-import MainPage from './components/MainPage.vue'
+import Header from "./components/Layout/Header.vue"
+import MainPage from './components/Layout/MainPage.vue'
 
 export default {
   name: 'App',
   components: {
+    Header,
     MainPage
   }
 }

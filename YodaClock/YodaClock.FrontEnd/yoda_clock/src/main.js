@@ -14,9 +14,12 @@ Vue.config.productionTip = false
 
 const store = new Vuex.Store({
   state: {
-    msg: "Front is I" 
+    body: ""
   },
   mutations: {
+    func(state) {
+      state.body += "Well shit";
+    }
   }
 })
 
