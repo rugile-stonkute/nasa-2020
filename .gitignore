@@ -9,3 +9,7 @@
 /YodaClock.WebApi/YodaClockWebApi/obj/Release/netcoreapp3.1
 /YodaClock.WebApi/YodaClockWebApi/Properties/PublishProfiles
 /YodaClock/YodaClock.WebApi/obj/Debug/netcoreapp3.1
+/YodaClock/YodaClock.DataContext/bin/Debug/netcoreapp3.1
+/YodaClock/YodaClock.DataContext/obj
+/YodaClock/YodaClock.Repository/obj
+/YodaClock/YodaClock.WebApi/bin/Debug/netcoreapp3.1/runtimes
