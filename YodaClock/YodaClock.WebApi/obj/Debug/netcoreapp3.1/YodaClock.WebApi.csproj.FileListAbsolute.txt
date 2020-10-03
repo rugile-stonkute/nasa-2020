@@ -17,3 +17,4 @@ C:\Users\Vaidotas\Documents\GitHub\nasa-2020\YodaClock\YodaClock.WebApi\obj\Debu
 C:\Users\Vaidotas\Documents\GitHub\nasa-2020\YodaClock\YodaClock.WebApi\obj\Debug\netcoreapp3.1\YodaClock.WebApi.dll
 C:\Users\Vaidotas\Documents\GitHub\nasa-2020\YodaClock\YodaClock.WebApi\obj\Debug\netcoreapp3.1\YodaClock.WebApi.pdb
 C:\Users\Vaidotas\Documents\GitHub\nasa-2020\YodaClock\YodaClock.WebApi\obj\Debug\netcoreapp3.1\YodaClock.WebApi.genruntimeconfig.cache
+C:\Users\Vaidotas\Documents\GitHub\nasa-2020\YodaClock\YodaClock.WebApi\obj\Debug\netcoreapp3.1\YodaClock.WebApi.csprojAssemblyReference.cache

@@ -6,17 +6,20 @@
 </template>
 
 <script>
+import CommunicationHelper from "../../Helpers/CommunicationHelper.js"
+
 export default {
   name: 'MainPage',
   data() {
     return {
-      body: ""
+      body: "Hello World",
+      communicationHelper: new CommunicationHelper()
     }
   },
   methods: {
-    clickAction() {
-      this.$store.commit("func");
-      this.body = this.$store.state.body;
+    async clickAction() {
+      var response = await this.communicationHelper.PostData("https://localhost:44334/", { name: "Oh boiiii"});
+      this.body = response.name;
     }
   }
 }

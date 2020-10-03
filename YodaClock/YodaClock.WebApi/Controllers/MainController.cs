@@ -3,6 +3,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using YodaClock.WebApi.Models;
 
 namespace YodaClock.WebApi.Controllers
 {
@@ -15,10 +16,10 @@ namespace YodaClock.WebApi.Controllers
         {
         }
 
-        [HttpGet]
-        public string Get()
+        [HttpPost]
+        public Data Get(Data data)
         {
-            return "Hello World";
+            return data;
         }
     }
 }
