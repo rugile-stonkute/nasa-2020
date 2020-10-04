@@ -95,3 +95,11 @@
     }
   }
 </script>
+<style scoped>
+#left-left{
+  width: 35vw;
+  height: 25vh;
+  font-size: 40px;
+
+  }
+</style>

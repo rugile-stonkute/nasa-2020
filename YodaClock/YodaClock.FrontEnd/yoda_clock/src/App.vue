@@ -2,7 +2,8 @@
   <div id="app">
     <Header />
     <MainPage />
-    <button @click="darkThemeSwitch()">Switch Theme</button>
+    <b-button @click="darkThemeSwitch()"><b-icon icon="moon"></b-icon>
+</b-button>
   </div>
 </template>
 

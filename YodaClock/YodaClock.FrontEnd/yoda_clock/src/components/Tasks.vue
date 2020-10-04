@@ -24,10 +24,6 @@ export default {
                 },
                 {
                     about: "Figure out how to make a lightsaber.",
-                    progress: true
-                },
-                {
-                    about: "Figure out how to make a lightsaber.",
                     progress: false
                 },
                 {
@@ -48,7 +44,7 @@ export default {
 <style scoped>
 .task
 {
-    font-size: 20px;
+    font-size: 18px;
     text-align: left;
     border-style: solid;
     border-color:rgba(23,162,184,0.1);
