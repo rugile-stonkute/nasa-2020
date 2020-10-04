@@ -56,7 +56,7 @@ namespace YodaClock.DataContext
         {
             if (!optionsBuilder.IsConfigured)
             {
-                optionsBuilder.UseSqlServer(@"workstation id=YodaClock.mssql.somee.com;packet size=4096;user id=jooda_SQLLogin_1;pwd=qeb4z8zm2w;data source=YodaClock.mssql.somee.com;persist security info=False;initial catalog=YodaClock");
+                optionsBuilder.UseSqlServer("");
             }
         }
 
