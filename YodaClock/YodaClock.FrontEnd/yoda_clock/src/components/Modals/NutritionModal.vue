@@ -50,7 +50,7 @@
     },
     methods: {
       loadModal() {
-        this.items = this.$store.state.products;
+        /*this.items = this.$store.state.products;
         this.meals = this.$store.state.meals;
         this.rows = this.$store.state.nutritions;
         if(this.rows.length == 0) {
@@ -61,8 +61,8 @@
             amount: 0,
             timestamp: 0
           });
-        }
-        this.$refs['nutrition-modal'].show();
+        }*/
+        //this.$refs['nutrition-modal'].show();
       },
       addRow() {
         if(this.rows.length == 0 || this.rows[this.rows.length - 1].name != "") {

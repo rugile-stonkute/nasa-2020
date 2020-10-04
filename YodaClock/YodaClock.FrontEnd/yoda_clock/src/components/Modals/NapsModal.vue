@@ -22,7 +22,7 @@
       },
       loadModal() {
         this.items = this.$store.state.exercises;
-        this.$refs['nutrition-modal'].show();
+        //this.$refs['nutrition-modal'].show();
       }
     }
   }

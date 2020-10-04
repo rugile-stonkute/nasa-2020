@@ -4,7 +4,7 @@
     <b-row>
       <b-col cols="10">
         <div class="block" id="progress-bar-container">
-        <ProgressBar />
+        <progress-bar :progress="$store.state.progress" />
         </div>
       </b-col>
       <b-col cols="2">
@@ -54,12 +54,12 @@ export default {
   },
   methods: {
     openNutrition() {
-      console.log(this.$bvModal);
-      this.$bvModal.show('nutrition-modal');
+      // console.log(this.$bvModal);
+      // this.$bvModal.show('nutrition-modal');
     },
     async clickAction() {
-      var response = await this.communicationHelper.PostData("https://localhost:44334/", { name: "Oh boiiii"});
-      this.body = response.name;
+      // var response = await this.communicationHelper.PostData("https://localhost:44334/", { name: "Oh boiiii"});
+      // this.body = response.name;
     }
   }
 }

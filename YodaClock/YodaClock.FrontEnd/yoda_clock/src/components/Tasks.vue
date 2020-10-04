@@ -23,7 +23,7 @@ export default {
                     progress: false
                 },
                 {
-                    about: "Figure out how to make a lightsaber.",
+                    about: "Learn Yoda grammar.",
                     progress: false
                 },
                 {

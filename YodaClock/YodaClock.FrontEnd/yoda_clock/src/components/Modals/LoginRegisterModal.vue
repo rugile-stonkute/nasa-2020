@@ -133,6 +133,7 @@ export default {
           carb: 268.85,
           fat: 61.39,
           protein: 76.09,
+          sleepDuration: 330,
           environment: {
             noise: 52.57,
             illumination: 8,
@@ -708,10 +709,10 @@ export default {
         "https://localhost:44334/LuxResponses",
         request
       );
-      this.$store.state.nutritions = await this.communicationHelper.PostData(
-        "https://localhost:44334/nutritions",
-        request
-      );
+      // this.$store.state.nutritions = await this.communicationHelper.PostData(
+      //   "https://localhost:44334/nutritions",
+      //   request
+      // );
 
       this.$refs['login-register-modal'].hide();
     },

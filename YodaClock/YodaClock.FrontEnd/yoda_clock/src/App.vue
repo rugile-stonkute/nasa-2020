@@ -34,9 +34,11 @@ export default {
     darkThemeSwitch() {
       let darkThemeLinkEl = document.querySelector("#dark-theme-style");
       if (!darkThemeLinkEl) {
-        this._addDarkTheme()
+        this._addDarkTheme();
+        this.$store.state.progress = 80;
       } else {
-        this._removeDarkTheme()
+        this._removeDarkTheme();
+        this.$store.state.progress = 20;
       }
     }
   }

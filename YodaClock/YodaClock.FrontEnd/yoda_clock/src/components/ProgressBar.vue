@@ -2,7 +2,7 @@
   <div id='progress-bar'>
     <div v-bind:key="bar.id" v-for="bar in bars" class="row mb-1">
       <div class="col-sm-12 pt-1">
-        <b-progress show-progress height="45px" :value="bar.value" variant="info" id=letters > </b-progress>
+        <b-progress show-progress height="45px" :value="bars.value" variant="info" id=letters > </b-progress>
       </div>
     </div>
   </div>
@@ -10,16 +10,19 @@
 
 <script>
   export default {
+    props: ["progress"],
     data() {
       return {
-        bars: [
-          {  value: 70 },
-        ],
+        bars: {
+          value: 20,
+        },
         timer: null
       }
     },
-    mounted() {
-    
+    watch: {
+      progress: function() {
+        this.bars.value = this.$store.state.progress;
+      }
     },
     beforeDestroy() {
       clearInterval(this.timer)
