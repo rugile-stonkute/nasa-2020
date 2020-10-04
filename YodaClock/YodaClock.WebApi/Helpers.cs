@@ -10,58 +10,190 @@ namespace YodaClock.WebApi
 {
     public static class Helpers
     {
-        private static string GetSetUserToken(string username, int planId)
+        public static List<Exercise> GetExercises(Request request)
         {
             using (var context = new YodaClockDbContext())
             {
-                string toReturn = "";
+                var toReturn = new List<Exercise>();
 
-                var existingUser = context.Users.FirstOrDefault(u => u.Username == username);
-
-                if (existingUser == null)
+                var existingUser = context.Users.FirstOrDefault(u => u.Username == request.Username && u.Token == request.Token);
+                
+                if(existingUser != null)
                 {
-                    toReturn = Guid.NewGuid().ToString();
-
-                    var user = new User()
-                    {
-                        Username = username,
-                        PlanId = planId,
-                        Token = toReturn
-                    };
-
-                    context.Users.Add(user);
-                    context.SaveChanges();
-                }
-                else
-                {
-                    toReturn = existingUser.Token;
+                    toReturn = context.Exercises.Where(e => e.PlanId == existingUser.PlanId).ToList();
                 }
 
                 return toReturn;
             }
         }
 
-        public static List<Exercise> GetExercises()
+        public static List<Meal> GetMeals(Request request)
         {
             using (var context = new YodaClockDbContext())
             {
-                return context.Exercises.ToList();
+                var toReturn = new List<Meal>();
+
+                var existingUser = context.Users.FirstOrDefault(u => u.Username == request.Username && u.Token == request.Token);
+
+                if (existingUser != null)
+                {
+                    toReturn = context.Meals.Where(e => e.PlanId == existingUser.PlanId).ToList();
+                }
+
+                return toReturn;
             }
         }
 
-        public static List<UserPrecondition> GetUserPreconditions()
+        public static List<Nap> GetNaps(Request request)
         {
             using (var context = new YodaClockDbContext())
             {
-                return context.UserPreconditions.ToList();
+                var toReturn = new List<Nap>();
+
+                var existingUser = context.Users.FirstOrDefault(u => u.Username == request.Username && u.Token == request.Token);
+
+                if (existingUser != null)
+                {
+                    toReturn = context.Naps.Where(e => e.PlanId == existingUser.PlanId).ToList();
+                }
+
+                return toReturn;
             }
         }
 
-        public static List<UserEnvironment> GetUserEnvironments()
+        public static Plan GetPlan(Request request)
         {
             using (var context = new YodaClockDbContext())
             {
-                return context.UserEnvironments.ToList();
+                var toReturn = new Plan();
+
+                var existingUser = context.Users.FirstOrDefault(u => u.Username == request.Username && u.Token == request.Token);
+
+                if (existingUser != null)
+                {
+                    toReturn = context.Plans.FirstOrDefault(e => e.Id == existingUser.PlanId);
+                }
+
+                return toReturn;
+            }
+        }
+
+        public static List<PlanMealTime> GetPlanMealTimes(Request request)
+        {
+            using (var context = new YodaClockDbContext())
+            {
+                var toReturn = new List<PlanMealTime>();
+
+                var existingUser = context.Users.FirstOrDefault(u => u.Username == request.Username && u.Token == request.Token);
+
+                if (existingUser != null)
+                {
+                    toReturn = context.PlanMealTimes.Where(e => e.PlanId == existingUser.PlanId).ToList();
+                }
+
+                return toReturn;
+            }
+        }
+
+        public static List<Product> GetProducts(Request request)
+        {
+            using (var context = new YodaClockDbContext())
+            {
+                var toReturn = new List<Product>();
+
+                var existingUser = context.Users.FirstOrDefault(u => u.Username == request.Username && u.Token == request.Token);
+
+                if (existingUser != null)
+                {
+                    toReturn = context.Products.Where(e => e.PlanId == existingUser.PlanId).ToList();
+                }
+
+                return toReturn;
+            }
+        }
+
+        public static UserEnvironment GetUserEnvironment(Request request)
+        {
+            using (var context = new YodaClockDbContext())
+            {
+                var toReturn = new UserEnvironment();
+
+                var existingUser = context.Users.FirstOrDefault(u => u.Username == request.Username && u.Token == request.Token);
+
+                if (existingUser != null)
+                {
+                    toReturn = context.UserEnvironments.FirstOrDefault(e => e.UserId == existingUser.Id);
+                }
+
+                return toReturn;
+            }
+        }
+
+        public static List<UserMealExercise> GetUserMealExercises(Request request)
+        {
+            using (var context = new YodaClockDbContext())
+            {
+                var toReturn = new List<UserMealExercise>();
+
+                var existingUser = context.Users.FirstOrDefault(u => u.Username == request.Username && u.Token == request.Token);
+
+                if (existingUser != null)
+                {
+                    toReturn = context.UserMealExercises.Where(e => e.UserId == existingUser.Id).ToList();
+                }
+
+                return toReturn;
+            }
+        }
+
+        public static List<UserNap> GetUserNaps(Request request)
+        {
+            using (var context = new YodaClockDbContext())
+            {
+                var toReturn = new List<UserNap>();
+
+                var existingUser = context.Users.FirstOrDefault(u => u.Username == request.Username && u.Token == request.Token);
+
+                if (existingUser != null)
+                {
+                    toReturn = context.UserNaps.Where(e => e.UserId == existingUser.Id).ToList();
+                }
+
+                return toReturn;
+            }
+        }
+
+        public static UserPrecondition GetUserPrecondition(Request request)
+        {
+            using (var context = new YodaClockDbContext())
+            {
+                var toReturn = new UserPrecondition();
+
+                var existingUser = context.Users.FirstOrDefault(u => u.Username == request.Username && u.Token == request.Token);
+
+                if (existingUser != null)
+                {
+                    toReturn = context.UserPreconditions.FirstOrDefault(e => e.UserId == existingUser.Id);
+                }
+
+                return toReturn;
+            }
+        }
+
+        public static List<UserProductMeal> GetUserProductMeals(Request request)
+        {
+            using (var context = new YodaClockDbContext())
+            {
+                var toReturn = new List<UserProductMeal>();
+
+                var existingUser = context.Users.FirstOrDefault(u => u.Username == request.Username && u.Token == request.Token);
+
+                if (existingUser != null)
+                {
+                    toReturn = context.UserProductMeals.Where(e => e.UserId == existingUser.Id).ToList();
+                }
+
+                return toReturn;
             }
         }
 

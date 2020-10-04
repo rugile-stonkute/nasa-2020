@@ -26,32 +26,89 @@ namespace YodaClock.WebApi.Controllers
             return Helpers.LoginRegister(loginRegister);
         }
 
+        [HttpPost]
+        [Route("Exercises")]
+        public List<Exercise> GetExercises(Request request)
+        {
+            return Helpers.GetExercises(request);
+        }
+
+        [HttpPost]
+        [Route("Meals")]
+        public List<Meal> GetMeals(Request request)
+        {
+            return Helpers.GetMeals(request);
+        }
+
+        [HttpPost]
+        [Route("Naps")]
+        public List<Nap> GetNaps(Request request)
+        {
+            return Helpers.GetNaps(request);
+        }
+
+        [HttpPost]
+        [Route("Plan")]
+        public Plan GetPlan(Request request)
+        {
+            return Helpers.GetPlan(request);
+        }
+
+        [HttpPost]
+        [Route("PlanMealTimes")]
+        public List<PlanMealTime> GetPlanMealTimes(Request request)
+        {
+            return Helpers.GetPlanMealTimes(request);
+        }
+
+        [HttpPost]
+        [Route("Products")]
+        public List<Product> GetProducts(Request request)
+        {
+            return Helpers.GetProducts(request);
+        }
+
+        [HttpPost]
+        [Route("UserEnvironment")]
+        public UserEnvironment GetUserEnvironment(Request request)
+        {
+            return Helpers.GetUserEnvironment(request);
+        }
+
+        [HttpPost]
+        [Route("UserMealExercises")]
+        public List<UserMealExercise> GetUserMealExercises(Request request)
+        {
+            return Helpers.GetUserMealExercises(request);
+        }
+
+        [HttpPost]
+        [Route("UserNaps")]
+        public List<UserNap> GetUserNaps(Request request)
+        {
+            return Helpers.GetUserNaps(request);
+        }
+
+        [HttpPost]
+        [Route("UserPrecondition")]
+        public UserPrecondition GetUserPrecondition(Request request)
+        {
+            return Helpers.GetUserPrecondition(request);
+        }
+
+        [HttpPost]
+        [Route("UserProductMeals")]
+        public List<UserProductMeal> GetUserProductMeals(Request request)
+        {
+            return Helpers.GetUserProductMeals(request);
+        }
+
+
         [HttpGet]
         [Route("Delete")]
         public void DeleteAll()
         {
             Helpers.Delete();
-        }
-
-        [HttpGet]
-        [Route("Exercises")]
-        public List<Exercise> GetExercises()
-        {
-            return Helpers.GetExercises();
-        }
-
-        [HttpGet]
-        [Route("UserPreconditions")]
-        public List<UserPrecondition> GetUserPreconditions()
-        {
-            return Helpers.GetUserPreconditions();
-        }
-
-        [HttpGet]
-        [Route("UserEnvironments")]
-        public List<UserEnvironment> GetUserEnvironments()
-        {
-            return Helpers.GetUserEnvironments();
         }
     }
 }
