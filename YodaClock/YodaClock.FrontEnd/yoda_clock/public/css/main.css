@@ -1,0 +1,31 @@
+#app {
+    font-family: Avenir, Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-align: center;
+    color: #312F2F;
+    background-color: #FDFDFF;
+  }
+
+.MainPage .container {
+  max-width: 100%;
+  padding: 5px;
+}
+.block {
+  margin: 0;
+  background-color: #A1867F;
+}
+.Header{
+  margin: auto;
+  background-color: #53A264;
+  color:#FDFDFF;
+  position:sticky;
+  top:0;
+  z-index: 1;
+}
+.Header > img{
+margin-bottom: 4px;
+}
+#progress-bar-container{
+  background-color: #FDFDFF;
+}

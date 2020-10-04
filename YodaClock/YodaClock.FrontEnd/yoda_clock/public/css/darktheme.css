@@ -1,0 +1,46 @@
+
+h1,h2,h3,h4{
+    color: #FDFDFF;
+}
+#app {
+    font-family: Avenir, Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-align: center;
+    color: #FDFDFF;
+    background-color: #312F2F;
+    width: 100vw;
+    height: 100vh;
+  }
+
+#tasks, .task, #progress-bar{ 
+    background-color: #312F2F;
+
+}
+.Header{
+    background-color: #312F2F;
+}
+#submit-button{
+  font-size: 25px;
+  width:150px;
+  padding:4px;
+}
+.button-container{
+  float:left;
+  width:80%;
+  margin-top:1rem;
+  margin-bottom: 4rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  color:#312F2F;
+}
+
+
+.button-container > div{
+    background-color: #312F2F;
+}
+
+.button-container > div{
+  color: rgb(155, 144, 144);
+}
