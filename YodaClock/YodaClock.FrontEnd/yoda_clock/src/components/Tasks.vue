@@ -2,8 +2,8 @@
 <div id="tasks">
         <div v-bind:key="task.id" v-for="task in tasks" class="task"> 
         <input type="checkbox" v-on:change="markComplete" v-bind:checked="tasks.progress" id="checkbox">
+        <br>
         {{task.about}}
-        {{task.progress}}
         </div>
 </div>
 </template>
@@ -51,7 +51,8 @@ export default {
     font-size: 20px;
     text-align: left;
     border-style: solid;
-    border-color:rgba(83,162,100,0.4);
+    border-color:rgba(23,162,184,0.1);
+    background-color: rgba(23,162,184,0.1);
     margin: 2px;
     padding:10px;
 }
@@ -65,6 +66,7 @@ export default {
     width:40px;
     height: 40px;
     color:black;
-}
+    margin:auto;
+text-align: center;}
 
 </style>

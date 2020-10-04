@@ -17,7 +17,7 @@
 }
 .Header{
   margin: auto;
-  background-color: #53A264;
+  background-color: #17a2b8;
   color:#FDFDFF;
   position:sticky;
   top:0;
@@ -29,3 +29,4 @@ margin-bottom: 4px;
 #progress-bar-container{
   background-color: #FDFDFF;
 }
+

@@ -20,19 +20,9 @@ h1,h2,h3,h4{
 .Header{
     background-color: #312F2F;
 }
-#submit-button{
-  font-size: 25px;
-  width:150px;
-  padding:4px;
-}
+
+
 .button-container{
-  float:left;
-  width:80%;
-  margin-top:1rem;
-  margin-bottom: 4rem;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
   color:#312F2F;
 }
 
@@ -41,6 +31,4 @@ h1,h2,h3,h4{
     background-color: #312F2F;
 }
 
-.button-container > div{
-  color: rgb(155, 144, 144);
-}
+

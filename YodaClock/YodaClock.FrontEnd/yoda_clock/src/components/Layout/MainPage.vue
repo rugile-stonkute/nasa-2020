@@ -8,7 +8,7 @@
         </div>
       </b-col>
       <b-col cols="2">
-       <b-button size="lg" id=submit-button variant="dark">Submit</b-button>
+       <b-button squared size="xl" id=submit-button variant="info"> Suggestions </b-button>
       </b-col>
     </b-row>
     <div class="button-container">
@@ -96,4 +96,5 @@ height: 20vh;
 #right-right{
 height: 20vh;
 }
+
 </style>
