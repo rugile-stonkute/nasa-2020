@@ -12,7 +12,7 @@
       </b-col>
     </b-row>
     <div class="button-container">
-      <div id="left-left"><h3>Left-left</h3></div>
+      <NutritionModal />
       <div id="left-right"><h3>left-right</h3></div>
       <div id="right-left"><h3>right-left</h3></div>
       <div id="right-right"><h3>right-right</h3></div>
@@ -20,9 +20,6 @@
     </div>
     <Tasks />
   </b-container>
-    <!-- {{body}} -->
-    <!-- <b-button @click="clickAction">Click</b-button> -->
-    <Modal />
     <LoginRegisterModal />
   </div>
 </template>
@@ -31,16 +28,18 @@
 import CommunicationHelper from "../../Helpers/CommunicationHelper.js"
 import ProgressBar from "../ProgressBar.vue"
 import Tasks from "../Tasks.vue"
-import Modal from "../Modals/Modal.vue"
+import NutritionModal from "../Modals/NutritionModal.vue"
 import LoginRegisterModal from "../Modals/LoginRegisterModal.vue"
+import Suggestions from "../Modals/Suggestions.vue"
 
 export default {
   name: 'MainPage',
   components: {
-    Modal,
+    NutritionModal,
     LoginRegisterModal,
     ProgressBar,
     Tasks,
+    Suggestions
   },
   data() {
     return {
@@ -48,6 +47,10 @@ export default {
     }
   },
   methods: {
+    openNutrition() {
+      console.log(this.$bvModal);
+      this.$bvModal.show('nutrition-modal');
+    },
     async clickAction() {
       var response = await this.communicationHelper.PostData("https://localhost:44334/", { name: "Oh boiiii"});
       this.body = response.name;
@@ -81,6 +84,11 @@ export default {
   flex-basis: 49.75%;
   margin-bottom: .5%; 
 }
+
+.button-container button{
+  width: 49.75%;
+}
+
 .button-container > div:hover{
   background-color:#312F2F;
   color:#FDFDFF;
