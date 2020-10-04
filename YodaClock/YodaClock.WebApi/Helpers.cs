@@ -27,6 +27,65 @@ namespace YodaClock.WebApi
             }
         }
 
+        public static List<MvvMNutrition> GetNutritions(Request request)
+        {
+            using (var context = new YodaClockDbContext())
+            {
+                var toReturn = new List<MvvMNutrition>();
+                var userProducMeals = new List<UserProductMeal>();
+
+                var existingUser = context.Users.FirstOrDefault(u => u.Username == request.Username && u.Token == request.Token);
+
+                if (existingUser != null)
+                {
+                    userProducMeals = context.UserProductMeals.Where(e => e.UserId == existingUser.Id).ToList();
+
+                    foreach(var userProductMeal in userProducMeals)
+                    {
+                        toReturn.Add(new MvvMNutrition()
+                        {
+                            ProductId = userProductMeal.ProductId,
+                            MealId = userProductMeal.MealId,
+                            Amount = userProductMeal.Amount,
+                            Timestamp = userProductMeal.Timestamp.ToString("HH:MM")
+                        });
+                    }
+                }
+
+                return toReturn;
+            }
+        }
+
+        public static List<MvvMNutrition> SetNutritions(Request request)
+        {
+            using (var context = new YodaClockDbContext())
+            {
+                var toReturn = new List<MvvMNutrition>();
+                var userProducMeals = new List<UserProductMeal>();
+
+                var existingUser = context.Users.FirstOrDefault(u => u.Username == request.Username && u.Token == request.Token);
+
+                if (existingUser != null)
+                {
+                    userProducMeals = context.UserProductMeals.Where(e => e.UserId == existingUser.Id).ToList();
+
+                    foreach (var userProductMeal in userProducMeals)
+                    {
+                        toReturn.Add(new MvvMNutrition()
+                        {
+                            ProductId = userProductMeal.ProductId,
+                            MealId = userProductMeal.MealId,
+                            Amount = userProductMeal.Amount,
+                            Timestamp = userProductMeal.Timestamp.ToString("HH:MM")
+                        });
+                    }
+                }
+
+                return toReturn;
+            }
+        }
+
+
         public static List<Meal> GetMeals(Request request)
         {
             using (var context = new YodaClockDbContext())

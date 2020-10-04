@@ -29,3 +29,35 @@ margin-bottom: 4px;
 #progress-bar-container{
   background-color: #FDFDFF;
 }
+.modal_inside_input-select {
+  display: inline-block!important;
+  width: 40%;
+  max-width: 40%;
+  margin: 5px;
+  margin-left: 12px;
+}
+
+.modal_inside_input-meals {
+  display: inline-block!important;
+  width: 30%;
+  max-width: 30%;
+  margin: 5px;
+  margin-left: 12px;
+}
+
+.modal_inside_input-field {
+  display: inline-block!important;
+  width: 8%;
+  max-width: 8%;
+  margin-left: 5px;
+  margin: 5px;
+}
+
+
+.modal_inside_delete {
+  display: inline-block!important;
+  width: 5%;
+  max-width: 5%;
+  margin: 5px;
+  margin-left: 5px;
+}

@@ -708,7 +708,11 @@ export default {
         "https://localhost:44334/LuxResponses",
         request
       );
-      
+      this.$store.state.nutritions = await this.communicationHelper.PostData(
+        "https://localhost:44334/nutritions",
+        request
+      );
+
       this.$refs['login-register-modal'].hide();
     },
   },

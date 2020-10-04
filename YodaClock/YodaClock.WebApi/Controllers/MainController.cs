@@ -83,6 +83,20 @@ namespace YodaClock.WebApi.Controllers
         }
 
         [HttpPost]
+        [Route("Nutritions")]
+        public List<MvvMNutrition> GetNutrition(Request request)
+        {
+            return Helpers.GetNutrition(request);
+        }
+
+        [HttpPost]
+        [Route("NutritionChanges")]
+        public List<MvvMNutrition> SetNutritions(Request request)
+        {
+            return Helpers.SetNutritions(request);
+        }
+
+        [HttpPost]
         [Route("UserNaps")]
         public List<UserNap> GetUserNaps(Request request)
         {
