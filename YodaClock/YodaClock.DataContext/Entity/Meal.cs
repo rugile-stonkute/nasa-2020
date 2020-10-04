@@ -31,9 +31,14 @@ namespace YodaClock.DataContext
         // Reverse navigation
 
         /// <summary>
-        /// Child UserMealExerises where [UserMealExerise].[MealId] point to this entity (FK_UserMeaExerise_Meal)
+        /// Child PlanMealTimes where [PlanMealTime].[MealId] point to this entity (FK_PlanMealTime_Meal)
         /// </summary>
-        public virtual ICollection<UserMealExercise> UserMealExercises { get; set; } // UserMealExerise.FK_UserMeaExerise_Meal
+        public virtual ICollection<PlanMealTime> PlanMealTimes { get; set; } // PlanMealTime.FK_PlanMealTime_Meal
+
+        /// <summary>
+        /// Child UserMealExercises where [UserMealExercise].[MealId] point to this entity (FK_UserMeaExerise_Meal)
+        /// </summary>
+        public virtual ICollection<UserMealExercise> UserMealExercises { get; set; } // UserMealExercise.FK_UserMeaExerise_Meal
 
         /// <summary>
         /// Child UserProductMeals where [UserProductMeal].[MealId] point to this entity (FK_UserProductMeal_Meal)
@@ -49,6 +54,7 @@ namespace YodaClock.DataContext
 
         public Meal()
         {
+            PlanMealTimes = new List<PlanMealTime>();
             UserMealExercises = new List<UserMealExercise>();
             UserProductMeals = new List<UserProductMeal>();
         }

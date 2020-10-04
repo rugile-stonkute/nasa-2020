@@ -34,6 +34,11 @@ namespace YodaClock.DataContext
         // Foreign keys
 
         /// <summary>
+        /// Parent Meal pointed by [PlanMealTime].([MealId]) (FK_PlanMealTime_Meal)
+        /// </summary>
+        public virtual Meal Meal { get; set; } // FK_PlanMealTime_Meal
+
+        /// <summary>
         /// Parent Plan pointed by [PlanMealTime].([PlanId]) (FK_PlanMealTime_Plan)
         /// </summary>
         public virtual Plan Plan { get; set; } // FK_PlanMealTime_Plan

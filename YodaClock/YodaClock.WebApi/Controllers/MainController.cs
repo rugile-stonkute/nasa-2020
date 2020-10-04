@@ -103,6 +103,19 @@ namespace YodaClock.WebApi.Controllers
             return Helpers.GetUserProductMeals(request);
         }
 
+        [HttpPost]
+        [Route("DbResponses")]
+        public List<DbResponse> GetDbResponses(Request request)
+        {
+            return Helpers.GetDbResponses(request);
+        }
+
+        [HttpPost]
+        [Route("LuxResponses")]
+        public List<LuxResponse> GetLuxResponses(Request request)
+        {
+            return Helpers.GetLuxResponses(request);
+        }
 
         [HttpGet]
         [Route("Delete")]

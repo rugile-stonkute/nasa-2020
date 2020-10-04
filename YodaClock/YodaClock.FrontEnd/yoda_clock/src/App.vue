@@ -3,7 +3,6 @@
     <Header />
     <MainPage />
     <button @click="darkThemeSwitch()">Switch Theme</button>
-
   </div>
 </template>
 

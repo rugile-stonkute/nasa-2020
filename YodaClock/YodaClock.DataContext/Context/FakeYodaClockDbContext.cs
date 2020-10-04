@@ -35,10 +35,9 @@ namespace YodaClock.DataContext
         public DbSet<Plan> Plans { get; set; } // Plan
         public DbSet<PlanMealTime> PlanMealTimes { get; set; } // PlanMealTime
         public DbSet<Product> Products { get; set; } // Product
-        public DbSet<SleepingPlace> SleepingPlaces { get; set; } // SleepingPlace
         public DbSet<User> Users { get; set; } // User
         public DbSet<UserEnvironment> UserEnvironments { get; set; } // UserEnvironment
-        public DbSet<UserMealExercise> UserMealExercises { get; set; } // UserMealExerise
+        public DbSet<UserMealExercise> UserMealExercises { get; set; } // UserMealExercise
         public DbSet<UserNap> UserNaps { get; set; } // UserNap
         public DbSet<UserPrecondition> UserPreconditions { get; set; } // UserPrecondition
         public DbSet<UserProductMeal> UserProductMeals { get; set; } // UserProductMeal
@@ -55,7 +54,6 @@ namespace YodaClock.DataContext
             Plans = new FakeDbSet<Plan>("Id");
             PlanMealTimes = new FakeDbSet<PlanMealTime>("Id");
             Products = new FakeDbSet<Product>("Id");
-            SleepingPlaces = new FakeDbSet<SleepingPlace>("Id");
             Users = new FakeDbSet<User>("Id");
             UserEnvironments = new FakeDbSet<UserEnvironment>("Id");
             UserMealExercises = new FakeDbSet<UserMealExercise>("Id");

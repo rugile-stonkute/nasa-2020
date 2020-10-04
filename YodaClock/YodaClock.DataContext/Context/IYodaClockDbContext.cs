@@ -35,10 +35,9 @@ namespace YodaClock.DataContext
         DbSet<Plan> Plans { get; set; } // Plan
         DbSet<PlanMealTime> PlanMealTimes { get; set; } // PlanMealTime
         DbSet<Product> Products { get; set; } // Product
-        DbSet<SleepingPlace> SleepingPlaces { get; set; } // SleepingPlace
         DbSet<User> Users { get; set; } // User
         DbSet<UserEnvironment> UserEnvironments { get; set; } // UserEnvironment
-        DbSet<UserMealExercise> UserMealExercises { get; set; } // UserMealExerise
+        DbSet<UserMealExercise> UserMealExercises { get; set; } // UserMealExercise
         DbSet<UserNap> UserNaps { get; set; } // UserNap
         DbSet<UserPrecondition> UserPreconditions { get; set; } // UserPrecondition
         DbSet<UserProductMeal> UserProductMeals { get; set; } // UserProductMeal

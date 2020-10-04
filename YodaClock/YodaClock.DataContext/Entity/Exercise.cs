@@ -31,9 +31,9 @@ namespace YodaClock.DataContext
         // Reverse navigation
 
         /// <summary>
-        /// Child UserMealExerises where [UserMealExerise].[ExerciseId] point to this entity (FK_UserMealExerise_Exercise)
+        /// Child UserMealExercises where [UserMealExercise].[ExerciseId] point to this entity (FK_UserMealExerise_Exercise)
         /// </summary>
-        public virtual ICollection<UserMealExercise> UserMealExercises { get; set; } // UserMealExerise.FK_UserMealExerise_Exercise
+        public virtual ICollection<UserMealExercise> UserMealExercises { get; set; } // UserMealExercise.FK_UserMealExerise_Exercise
 
         // Foreign keys
 

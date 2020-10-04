@@ -27,7 +27,7 @@ namespace YodaClock.DataContext
         public int Id { get; set; } // Id (Primary key)
         public string Name { get; set; } // Name (length: 100)
         public decimal ExercisePercentage { get; set; } // ExercisePercentage
-        public int ExcerciseTime { get; set; } // ExcerciseTme
+        public int ExcerciseTime { get; set; } // ExcerciseTime
         public decimal Carb { get; set; } // Carb
         public decimal Fat { get; set; } // Fat
         public decimal Protein { get; set; } // Protein
@@ -60,11 +60,6 @@ namespace YodaClock.DataContext
         public virtual ICollection<Product> Products { get; set; } // Product.FK_Product_Plan
 
         /// <summary>
-        /// Child SleepingPlaces where [SleepingPlace].[PlanId] point to this entity (FK_SleepingPlace_Plan)
-        /// </summary>
-        public virtual ICollection<SleepingPlace> SleepingPlaces { get; set; } // SleepingPlace.FK_SleepingPlace_Plan
-
-        /// <summary>
         /// Child Users where [User].[PlanId] point to this entity (FK_User_Plan)
         /// </summary>
         public virtual ICollection<User> Users { get; set; } // User.FK_User_Plan
@@ -76,7 +71,6 @@ namespace YodaClock.DataContext
             Naps = new List<Nap>();
             PlanMealTimes = new List<PlanMealTime>();
             Products = new List<Product>();
-            SleepingPlaces = new List<SleepingPlace>();
             Users = new List<User>();
         }
     }
