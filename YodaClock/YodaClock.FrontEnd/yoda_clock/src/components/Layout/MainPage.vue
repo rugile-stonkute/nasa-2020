@@ -8,7 +8,7 @@
         </div>
       </b-col>
       <b-col cols="2">
-       <b-button squared size="xl" id=submit-button variant="info"> Suggestions </b-button>
+        <Suggestions />
       </b-col>
     </b-row>
     <div class="button-container">
@@ -31,7 +31,7 @@ import CommunicationHelper from "../../Helpers/CommunicationHelper.js"
 import ProgressBar from "../ProgressBar.vue"
 import Tasks from "../Tasks.vue"
 import Modal from "./Modal.vue"
-
+import Suggestions from  "../Suggestions.vue"
 export default {
   name: 'MainPage',
   data() {
@@ -48,7 +48,8 @@ export default {
   components:{
 ProgressBar,
 Tasks,
-Modal
+Modal,
+Suggestions
   }
 }
 </script>
