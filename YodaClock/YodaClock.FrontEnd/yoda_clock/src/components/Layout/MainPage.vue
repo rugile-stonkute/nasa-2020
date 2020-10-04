@@ -13,10 +13,9 @@
     </b-row>
     <div class="button-container">
       <NutritionModal />
-      <div id="left-right"><h3>left-right</h3></div>
-      <div id="right-left"><h3>right-left</h3></div>
-      <div id="right-right"><h3>right-right</h3></div>
-
+      <ExerciseModal />
+      <NapsModal />
+      <EnvironmentModal />
     </div>
     <Tasks />
   </b-container>
@@ -31,15 +30,22 @@ import Tasks from "../Tasks.vue"
 import NutritionModal from "../Modals/NutritionModal.vue"
 import LoginRegisterModal from "../Modals/LoginRegisterModal.vue"
 import Suggestions from "../Modals/Suggestions.vue"
+import ExerciseModal from "../Modals/ExerciseModal.vue"
+import EnvironmentModal from "../Modals/EnvironmentModal.vue"
+import NapsModal from "../Modals/NapsModal.vue"
+
 
 export default {
   name: 'MainPage',
   components: {
     NutritionModal,
+    ExerciseModal,
     LoginRegisterModal,
     ProgressBar,
     Tasks,
-    Suggestions
+    Suggestions,
+    EnvironmentModal,
+    NapsModal
   },
   data() {
     return {
@@ -90,7 +96,6 @@ export default {
 }
 
 .button-container > div:hover{
-  background-color:#312F2F;
   color:#FDFDFF;
 }
 #left-left{

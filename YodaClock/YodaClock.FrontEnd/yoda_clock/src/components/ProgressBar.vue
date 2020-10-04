@@ -2,7 +2,7 @@
   <div id='progress-bar'>
     <div v-bind:key="bar.id" v-for="bar in bars" class="row mb-1">
       <div class="col-sm-12 pt-1">
-        <b-progress show-progress height="45px" :value="bar.value" variant="info" id=letters> </b-progress>
+        <b-progress show-progress height="45px" :value="bar.value" variant="info" id=letters > </b-progress>
       </div>
     </div>
   </div>
@@ -30,5 +30,7 @@
 <style scoped>
 #letters{
   font-size: 30px;
+  color:red;
 }
+
 </style>
