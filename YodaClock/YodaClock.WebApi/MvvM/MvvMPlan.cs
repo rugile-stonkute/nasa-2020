@@ -13,6 +13,7 @@ namespace YodaClock.WebApi.MvvM
         public decimal Carb { get; set; }
         public decimal Fat { get; set; }
         public decimal Protein { get; set; }
+        public int SleepDuration { get; set; }
         public MvvMEnvironment Environment { get; set; }
         public List<MvvMDbResponse> DbResponses { get; set; }
         public List<MvvMLuxResponse> LuxResponses { get; set; }

@@ -34,6 +34,7 @@ namespace YodaClock.DataContext
             builder.Property(x => x.Carb).HasColumnName(@"Carb").HasColumnType("decimal(18,2)").IsRequired();
             builder.Property(x => x.Fat).HasColumnName(@"Fat").HasColumnType("decimal(18,2)").IsRequired();
             builder.Property(x => x.Protein).HasColumnName(@"Protein").HasColumnType("decimal(18,2)").IsRequired();
+            builder.Property(x => x.SleepDuration).HasColumnName(@"SleepDuration").HasColumnType("int").IsRequired();
         }
     }
 

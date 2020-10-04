@@ -5,8 +5,8 @@ using System.Threading.Tasks;
 
 namespace YodaClock.WebApi.Models
 {
-    public class Data
+    public class SF
     {
-        public string Name { get; set; }
+        public decimal Percentage { get; set; }
     }
 }

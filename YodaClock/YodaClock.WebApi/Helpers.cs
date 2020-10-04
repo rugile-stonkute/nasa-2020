@@ -10,6 +10,80 @@ namespace YodaClock.WebApi
 {
     public static class Helpers
     {
+        public static SF GetSF(Request request)
+        {
+            using (var context = new YodaClockDbContext())
+            {
+                var toReturn = new SF();
+
+                var existingUser = context.Users.FirstOrDefault(u => u.Username == request.Username && u.Token == request.Token);
+
+                if (existingUser != null)
+                {
+                    toReturn.Percentage = 0;
+
+                    var userPrecondition = context.UserPreconditions.FirstOrDefault(up => up.UserId == existingUser.Id);
+                    var userEnvironment = context.UserEnvironments.FirstOrDefault(up => up.UserId == existingUser.Id);
+                    var plans = context.Plans.FirstOrDefault(p => p.Id == existingUser.PlanId);
+                    var dbResponses = context.DbResponses.ToList();
+                    var luxResponses = context.LuxResponses.ToList();
+
+                    var diffSleepDuration = plans.SleepDuration - userPrecondition.SleepDuration;
+                    if(diffSleepDuration > 0 && diffSleepDuration <= 60)
+                    {
+                        toReturn.Percentage -= 10;
+                    }
+                    else if(diffSleepDuration > 60)
+                    {
+                        toReturn.Percentage -= 30;
+                    }
+
+                    if(userPrecondition.SleepInterruptions > 7)
+                    {
+                        toReturn.Percentage -= 40;
+                    }
+                    else if(userPrecondition.SleepInterruptions >= 6)
+                    {
+                        toReturn.Percentage -= 20;
+                    }
+                    else if (userPrecondition.SleepInterruptions >= 3)
+                    {
+                        toReturn.Percentage -= 10;
+                    }
+                    else if (userPrecondition.SleepInterruptions >= 1)
+                    {
+                        toReturn.Percentage -= 5;
+                    }
+
+                    foreach(var db in dbResponses)
+                    {
+                        if(db.Db > userEnvironment.Noise)
+                        {
+                            toReturn.Percentage += db.Percentage;
+                            break;
+                        }
+                    }
+
+                    foreach (var lux in luxResponses)
+                    {
+                        if (lux.Lux > userEnvironment.Noise)
+                        {
+                            toReturn.Percentage += lux.Percentage;
+                            break;
+                        }
+                    }
+
+                    //After Preconditions
+
+                    //TODO: FINISH PROJECT
+
+
+                }
+
+                return toReturn;
+            }
+        }
+
         public static List<Exercise> GetExercises(Request request)
         {
             using (var context = new YodaClockDbContext())
@@ -27,11 +101,11 @@ namespace YodaClock.WebApi
             }
         }
 
-        public static List<MvvMNutrition> GetNutritions(Request request)
+        public static List<MvvMProductMeal> GetUserProductMeals(Request request)
         {
             using (var context = new YodaClockDbContext())
             {
-                var toReturn = new List<MvvMNutrition>();
+                var toReturn = new List<MvvMProductMeal>();
                 var userProducMeals = new List<UserProductMeal>();
 
                 var existingUser = context.Users.FirstOrDefault(u => u.Username == request.Username && u.Token == request.Token);
@@ -42,12 +116,15 @@ namespace YodaClock.WebApi
 
                     foreach(var userProductMeal in userProducMeals)
                     {
-                        toReturn.Add(new MvvMNutrition()
+                        toReturn.Add(new MvvMProductMeal()
                         {
                             ProductId = userProductMeal.ProductId,
                             MealId = userProductMeal.MealId,
                             Amount = userProductMeal.Amount,
-                            Timestamp = userProductMeal.Timestamp.ToString("HH:MM")
+                            Timestamp = userProductMeal.Timestamp.ToString("HH:MM"),
+                            Username = existingUser.Username,
+                            Token = existingUser.Token,
+                            Id = userProductMeal.Id
                         });
                     }
                 }
@@ -56,27 +133,65 @@ namespace YodaClock.WebApi
             }
         }
 
-        public static List<MvvMNutrition> SetNutritions(Request request)
+        public static List<MvvMProductMeal> SetUserProductMeals(List<MvvMProductMeal> productMeals)
         {
             using (var context = new YodaClockDbContext())
             {
-                var toReturn = new List<MvvMNutrition>();
-                var userProducMeals = new List<UserProductMeal>();
+                var toReturn = new List<MvvMProductMeal>();
+
+                var existingUser = context.Users.FirstOrDefault(u => u.Username == productMeals[0].Username && u.Token == productMeals[0].Token);
+
+                if (existingUser != null)
+                {
+                    context.UserProductMeals.RemoveRange(context.UserProductMeals.Where(upm => upm.UserId == existingUser.Id));
+                    context.SaveChanges();
+
+                    foreach (var productMeal in productMeals)
+                    {
+                        var userProductMeal = new UserProductMeal()
+                        {
+                            Id = productMeal.Id,
+                            UserId = existingUser.Id,
+                            ProductId = productMeal.ProductId,
+                            MealId = productMeal.MealId,
+                            Amount = productMeal.Amount,
+                            Timestamp = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day,
+                        Convert.ToInt32(productMeal.Timestamp.Split(":")[0]), Convert.ToInt32(productMeal.Timestamp.Split(":")[1]), 0),
+                        };
+
+                        context.UserProductMeals.Add(userProductMeal);
+                        context.SaveChanges();
+
+                        productMeal.Id = userProductMeal.Id;
+                    }
+                }
+
+                return toReturn;
+            }
+        }
+
+        public static List<MvvMUserEnvironment> GetUserEnvironments(Request request)
+        {
+            using (var context = new YodaClockDbContext())
+            {
+                var toReturn = new List<MvvMUserEnvironment>();
+                var userEnvironments = new List<UserEnvironment>();
 
                 var existingUser = context.Users.FirstOrDefault(u => u.Username == request.Username && u.Token == request.Token);
 
                 if (existingUser != null)
                 {
-                    userProducMeals = context.UserProductMeals.Where(e => e.UserId == existingUser.Id).ToList();
+                    userEnvironments = context.UserEnvironments.Where(e => e.UserId == existingUser.Id).ToList();
 
-                    foreach (var userProductMeal in userProducMeals)
+                    foreach (var userEnvironment in userEnvironments)
                     {
-                        toReturn.Add(new MvvMNutrition()
+                        toReturn.Add(new MvvMUserEnvironment()
                         {
-                            ProductId = userProductMeal.ProductId,
-                            MealId = userProductMeal.MealId,
-                            Amount = userProductMeal.Amount,
-                            Timestamp = userProductMeal.Timestamp.ToString("HH:MM")
+                            Illumination = userEnvironment.Illumination,
+                            Noise = userEnvironment.Noise,
+                            Username = existingUser.Username,
+                            Token = existingUser.Token,
+                            Id = userEnvironment.Id
                         });
                     }
                 }
@@ -85,6 +200,108 @@ namespace YodaClock.WebApi
             }
         }
 
+        public static List<MvvMUserEnvironment> SetUserEnvironments(List<MvvMUserEnvironment> userEnvironments)
+        {
+            using (var context = new YodaClockDbContext())
+            {
+                var toReturn = new List<MvvMUserEnvironment>();
+
+                var existingUser = context.Users.FirstOrDefault(u => u.Username == userEnvironments[0].Username && u.Token == userEnvironments[0].Token);
+
+                if (existingUser != null)
+                {
+                    context.UserEnvironments.RemoveRange(context.UserEnvironments.Where(upm => upm.UserId == existingUser.Id));
+                    context.SaveChanges();
+
+                    foreach (var userEnvironment in userEnvironments)
+                    {
+                        var environment = new UserEnvironment()
+                        {
+                            Id = userEnvironment.Id,
+                            UserId = existingUser.Id,
+                            Illumination = userEnvironment.Illumination,
+                            Noise = userEnvironment.Noise
+                        };
+
+                        context.UserEnvironments.Add(environment);
+                        context.SaveChanges();
+
+                        userEnvironment.Id = environment.Id;
+                    }
+                }
+
+                return toReturn;
+            }
+        }
+
+        public static List<MvvMMealExercise> GetMealExercises(Request request)
+        {
+            using (var context = new YodaClockDbContext())
+            {
+                var toReturn = new List<MvvMMealExercise>();
+                var userMealExercises = new List<UserMealExercise>();
+
+                var existingUser = context.Users.FirstOrDefault(u => u.Username == request.Username && u.Token == request.Token);
+
+                if (existingUser != null)
+                {
+                    userMealExercises = context.UserMealExercises.Where(e => e.UserId == existingUser.Id).ToList();
+
+                    foreach (var userMealExercise in userMealExercises)
+                    {
+                        toReturn.Add(new MvvMMealExercise()
+                        {
+                            Ate = userMealExercise.Ate,
+                            ExerciseId = userMealExercise.ExerciseId,
+                            MealId = userMealExercise.MealId,
+                            Time = userMealExercise.Time,
+                            Timestamp = userMealExercise.Timestamp.ToString("HH:MM"),
+                            Username = existingUser.Username,
+                            Token = existingUser.Token,
+                            Id = userMealExercise.Id
+                        });
+                    }
+                }
+
+                return toReturn;
+            }
+        }
+
+        public static List<MvvMMealExercise> SetMealExercises(List<MvvMMealExercise> mvvMMealExercises)
+        {
+            using (var context = new YodaClockDbContext())
+            {
+                var toReturn = new List<MvvMMealExercise>();
+
+                var existingUser = context.Users.FirstOrDefault(u => u.Username == mvvMMealExercises[0].Username && u.Token == mvvMMealExercises[0].Token);
+
+                if (existingUser != null)
+                {
+                    context.UserMealExercises.RemoveRange(context.UserMealExercises.Where(upm => upm.UserId == existingUser.Id));
+                    context.SaveChanges();
+
+                    foreach (var mvvMMealExercise in mvvMMealExercises)
+                    {
+                        var userMealExercise = new UserMealExercise()
+                        {
+                            Ate = mvvMMealExercise.Ate,
+                            ExerciseId = mvvMMealExercise.ExerciseId,
+                            MealId = mvvMMealExercise.MealId,
+                            Time = mvvMMealExercise.Time,
+                            Timestamp = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day,
+                        Convert.ToInt32(mvvMMealExercise.Timestamp.Split(":")[0]), Convert.ToInt32(mvvMMealExercise.Timestamp.Split(":")[1]), 0),
+                        };
+
+                        context.UserMealExercises.Add(userMealExercise);
+                        context.SaveChanges();
+
+                        mvvMMealExercise.Id = userMealExercise.Id;
+                    }
+                }
+
+                return toReturn;
+            }
+        }
 
         public static List<Meal> GetMeals(Request request)
         {
@@ -205,17 +422,65 @@ namespace YodaClock.WebApi
             }
         }
 
-        public static List<UserNap> GetUserNaps(Request request)
+        public static List<MvvMUserNap> GetUserNaps(Request request)
         {
             using (var context = new YodaClockDbContext())
             {
-                var toReturn = new List<UserNap>();
+                var toReturn = new List<MvvMUserNap>();
+                var userNaps = new List<UserNap>();
 
                 var existingUser = context.Users.FirstOrDefault(u => u.Username == request.Username && u.Token == request.Token);
 
                 if (existingUser != null)
                 {
-                    toReturn = context.UserNaps.Where(e => e.UserId == existingUser.Id).ToList();
+                    userNaps = context.UserNaps.Where(e => e.UserId == existingUser.Id).ToList();
+
+                    foreach(var userNap in userNaps)
+                    {
+                        toReturn.Add(new MvvMUserNap()
+                        {
+                            Id = userNap.Id,
+                            NapId = userNap.NapId,
+                            Timestamp = userNap.Timestamp.ToString("HH:MM"),
+                            Token = existingUser.Token,
+                            Username = existingUser.Username
+                        });
+                    }
+                }
+
+                return toReturn;
+            }
+        }
+
+        public static List<MvvMUserNap> SetUserNaps(List<MvvMUserNap> userNaps)
+        {
+            using (var context = new YodaClockDbContext())
+            {
+                var toReturn = new List<MvvMUserNap>();
+
+                var existingUser = context.Users.FirstOrDefault(u => u.Username == userNaps[0].Username && u.Token == userNaps[0].Token);
+
+                if (existingUser != null)
+                {
+                    context.UserNaps.RemoveRange(context.UserNaps.Where(upm => upm.UserId == existingUser.Id));
+                    context.SaveChanges();
+
+                    foreach (var userNap in userNaps)
+                    {
+                        var nap = new UserNap()
+                        {
+                            Id = userNap.Id,
+                            UserId = existingUser.Id,
+                            NapId = userNap.NapId,
+                            Timestamp = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day,
+                        Convert.ToInt32(userNap.Timestamp.Split(":")[0]), Convert.ToInt32(userNap.Timestamp.Split(":")[1]), 0),
+                        };
+
+                        context.UserNaps.Add(nap);
+                        context.SaveChanges();
+
+                        userNap.Id = nap.Id;
+                    }
                 }
 
                 return toReturn;
@@ -233,23 +498,6 @@ namespace YodaClock.WebApi
                 if (existingUser != null)
                 {
                     toReturn = context.UserPreconditions.FirstOrDefault(e => e.UserId == existingUser.Id);
-                }
-
-                return toReturn;
-            }
-        }
-
-        public static List<UserProductMeal> GetUserProductMeals(Request request)
-        {
-            using (var context = new YodaClockDbContext())
-            {
-                var toReturn = new List<UserProductMeal>();
-
-                var existingUser = context.Users.FirstOrDefault(u => u.Username == request.Username && u.Token == request.Token);
-
-                if (existingUser != null)
-                {
-                    toReturn = context.UserProductMeals.Where(e => e.UserId == existingUser.Id).ToList();
                 }
 
                 return toReturn;
@@ -416,7 +664,8 @@ namespace YodaClock.WebApi
                 ExcerciseTime = register.Plan.ExcerciseTime,
                 Carb = register.Plan.Carb,
                 Fat = register.Plan.Fat,
-                Protein = register.Plan.Protein
+                Protein = register.Plan.Protein,
+                SleepDuration = register.Plan.SleepDuration
             };
 
             context.Plans.Add(plan);

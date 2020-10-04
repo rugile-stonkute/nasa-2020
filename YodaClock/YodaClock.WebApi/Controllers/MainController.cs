@@ -27,6 +27,13 @@ namespace YodaClock.WebApi.Controllers
         }
 
         [HttpPost]
+        [Route("SF")]
+        public SF GetSF(Request request)
+        {
+            return Helpers.GetSF(request);
+        }
+
+        [HttpPost]
         [Route("Exercises")]
         public List<Exercise> GetExercises(Request request)
         {
@@ -76,31 +83,59 @@ namespace YodaClock.WebApi.Controllers
         }
 
         [HttpPost]
+        [Route("UserProductMeals")]
+        public List<MvvMProductMeal> GetUserProductMeals(Request request)
+        {
+            return Helpers.GetUserProductMeals(request);
+        }
+
+        [HttpPost]
+        [Route("UserProductMealChanges")]
+        public List<MvvMProductMeal> SetUserProductMeals(List<MvvMProductMeal> productMeals)
+        {
+            return Helpers.SetUserProductMeals(productMeals);
+        }
+
+        [HttpPost]
+        [Route("UserEnvironments")]
+        public List<MvvMUserEnvironment> GetUserEnvironments(Request request)
+        {
+            return Helpers.GetUserEnvironments(request);
+        }
+
+        [HttpPost]
+        [Route("UserEnvironmentChanges")]
+        public List<MvvMUserEnvironment> SetUserEnvironments(List<MvvMUserEnvironment> userEnvironments)
+        {
+            return Helpers.SetUserEnvironments(userEnvironments);
+        }
+
+        [HttpPost]
         [Route("UserMealExercises")]
-        public List<UserMealExercise> GetUserMealExercises(Request request)
+        public List<MvvMMealExercise> GetMealExercises(Request request)
         {
-            return Helpers.GetUserMealExercises(request);
+            return Helpers.GetMealExercises(request);
         }
 
         [HttpPost]
-        [Route("Nutritions")]
-        public List<MvvMNutrition> GetNutrition(Request request)
+        [Route("UserMealExerciseChanges")]
+        public List<MvvMMealExercise> SetMealExercises(List<MvvMMealExercise> userMealExercises)
         {
-            return Helpers.GetNutrition(request);
-        }
-
-        [HttpPost]
-        [Route("NutritionChanges")]
-        public List<MvvMNutrition> SetNutritions(Request request)
-        {
-            return Helpers.SetNutritions(request);
+            return Helpers.SetMealExercises(userMealExercises);
         }
 
         [HttpPost]
         [Route("UserNaps")]
-        public List<UserNap> GetUserNaps(Request request)
+        public List<MvvMUserNap> GetUserNaps(Request request)
         {
             return Helpers.GetUserNaps(request);
+        }
+
+        [HttpPost]
+        [Route("UserNapChanges")]
+        public List<MvvMUserNap> SetUserNaps(List<MvvMUserNap> naps)
+        {
+            return Helpers.SetUserNaps(naps);
         }
 
         [HttpPost]
@@ -108,13 +143,6 @@ namespace YodaClock.WebApi.Controllers
         public UserPrecondition GetUserPrecondition(Request request)
         {
             return Helpers.GetUserPrecondition(request);
-        }
-
-        [HttpPost]
-        [Route("UserProductMeals")]
-        public List<UserProductMeal> GetUserProductMeals(Request request)
-        {
-            return Helpers.GetUserProductMeals(request);
         }
 
         [HttpPost]

@@ -32,7 +32,7 @@ namespace YodaClock.DataContext
             builder.Property(x => x.MealId).HasColumnName(@"MealId").HasColumnType("int").IsRequired();
             builder.Property(x => x.ExerciseId).HasColumnName(@"ExerciseId").HasColumnType("int").IsRequired();
             builder.Property(x => x.Ate).HasColumnName(@"Ate").HasColumnType("bit").IsRequired();
-            builder.Property(x => x.Time).HasColumnName(@"Time").HasColumnType("datetime").IsRequired();
+            builder.Property(x => x.Time).HasColumnName(@"Time").HasColumnType("int").IsRequired();
             builder.Property(x => x.Timestamp).HasColumnName(@"Timestamp").HasColumnType("datetime").IsRequired();
 
             // Foreign keys

@@ -29,7 +29,7 @@ namespace YodaClock.DataContext
         public int MealId { get; set; } // MealId
         public int ExerciseId { get; set; } // ExerciseId
         public bool Ate { get; set; } // Ate
-        public DateTime Time { get; set; } // Time
+        public int Time { get; set; } // Time
         public DateTime Timestamp { get; set; } // Timestamp
 
         // Foreign keys

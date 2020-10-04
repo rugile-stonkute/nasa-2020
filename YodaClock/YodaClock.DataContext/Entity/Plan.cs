@@ -31,6 +31,7 @@ namespace YodaClock.DataContext
         public decimal Carb { get; set; } // Carb
         public decimal Fat { get; set; } // Fat
         public decimal Protein { get; set; } // Protein
+        public int SleepDuration { get; set; } // SleepDuration
 
         // Reverse navigation
 

@@ -14,6 +14,7 @@
     "carb": 268.85,
     "fat": 61.39,
     "protein": 76.09,
+    "sleepDuration": 330,
     "environment": {
       "noise": 52.57,
       "illumination": 8
