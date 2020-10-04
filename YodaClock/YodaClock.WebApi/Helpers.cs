@@ -197,6 +197,40 @@ namespace YodaClock.WebApi
             }
         }
 
+        public static List<DbResponse> GetDbResponses(Request request)
+        {
+            using (var context = new YodaClockDbContext())
+            {
+                var toReturn = new List<DbResponse>();
+
+                var existingUser = context.Users.FirstOrDefault(u => u.Username == request.Username && u.Token == request.Token);
+
+                if (existingUser != null)
+                {
+                    toReturn = context.DbResponses.ToList();
+                }
+
+                return toReturn;
+            }
+        }
+
+        public static List<LuxResponse> GetLuxResponses(Request request)
+        {
+            using (var context = new YodaClockDbContext())
+            {
+                var toReturn = new List<LuxResponse>();
+
+                var existingUser = context.Users.FirstOrDefault(u => u.Username == request.Username && u.Token == request.Token);
+
+                if (existingUser != null)
+                {
+                    toReturn = context.LuxResponses.ToList();
+                }
+
+                return toReturn;
+            }
+        }
+
         public static void Delete()
         {
             using (var context = new YodaClockDbContext())

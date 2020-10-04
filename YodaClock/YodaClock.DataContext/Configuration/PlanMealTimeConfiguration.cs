@@ -35,6 +35,7 @@ namespace YodaClock.DataContext
             builder.Property(x => x.End).HasColumnName(@"End").HasColumnType("datetime").IsRequired();
 
             // Foreign keys
+            builder.HasOne(a => a.Meal).WithMany(b => b.PlanMealTimes).HasForeignKey(c => c.MealId).OnDelete(DeleteBehavior.ClientSetNull).HasConstraintName("FK_PlanMealTime_Meal");
             builder.HasOne(a => a.Plan).WithMany(b => b.PlanMealTimes).HasForeignKey(c => c.PlanId).OnDelete(DeleteBehavior.ClientSetNull).HasConstraintName("FK_PlanMealTime_Plan");
         }
     }

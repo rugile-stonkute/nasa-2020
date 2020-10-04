@@ -37,9 +37,9 @@ namespace YodaClock.DataContext
         public virtual ICollection<UserEnvironment> UserEnvironments { get; set; } // UserEnvironment.FK_UserEnvironment_User
 
         /// <summary>
-        /// Child UserMealExerises where [UserMealExerise].[UserId] point to this entity (FK_UserMealExerise_User)
+        /// Child UserMealExercises where [UserMealExercise].[UserId] point to this entity (FK_UserMealExerise_User)
         /// </summary>
-        public virtual ICollection<UserMealExercise> UserMealExercises { get; set; } // UserMealExerise.FK_UserMealExerise_User
+        public virtual ICollection<UserMealExercise> UserMealExercises { get; set; } // UserMealExercise.FK_UserMealExerise_User
 
         /// <summary>
         /// Child UserNaps where [UserNap].[UserId] point to this entity (FK_UserNap_User)

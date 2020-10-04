@@ -21,7 +21,7 @@ using System.Threading.Tasks;
 
 namespace YodaClock.DataContext
 {
-    // UserMealExerise
+    // UserMealExercise
     public class UserMealExercise
     {
         public int Id { get; set; } // Id (Primary key)
@@ -35,17 +35,17 @@ namespace YodaClock.DataContext
         // Foreign keys
 
         /// <summary>
-        /// Parent Exercise pointed by [UserMealExerise].([ExerciseId]) (FK_UserMealExerise_Exercise)
+        /// Parent Exercise pointed by [UserMealExercise].([ExerciseId]) (FK_UserMealExerise_Exercise)
         /// </summary>
         public virtual Exercise Exercise { get; set; } // FK_UserMealExerise_Exercise
 
         /// <summary>
-        /// Parent Meal pointed by [UserMealExerise].([MealId]) (FK_UserMeaExerise_Meal)
+        /// Parent Meal pointed by [UserMealExercise].([MealId]) (FK_UserMeaExerise_Meal)
         /// </summary>
         public virtual Meal Meal { get; set; } // FK_UserMeaExerise_Meal
 
         /// <summary>
-        /// Parent User pointed by [UserMealExerise].([UserId]) (FK_UserMealExerise_User)
+        /// Parent User pointed by [UserMealExercise].([UserId]) (FK_UserMealExerise_User)
         /// </summary>
         public virtual User User { get; set; } // FK_UserMealExerise_User
     }

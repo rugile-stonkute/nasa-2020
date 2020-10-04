@@ -66,6 +66,9 @@ C:\Users\Vaidotas\Documents\GitHub\nasa-2020\YodaClock\YodaClock.WebApi\bin\Debu
 C:\Users\Vaidotas\Documents\GitHub\nasa-2020\YodaClock\YodaClock.WebApi\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.Swagger.dll
 C:\Users\Vaidotas\Documents\GitHub\nasa-2020\YodaClock\YodaClock.WebApi\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.SwaggerGen.dll
 C:\Users\Vaidotas\Documents\GitHub\nasa-2020\YodaClock\YodaClock.WebApi\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.SwaggerUI.dll
+C:\Users\Vaidotas\Documents\GitHub\nasa-2020\YodaClock\YodaClock.WebApi\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.JsonPatch.dll
+C:\Users\Vaidotas\Documents\GitHub\nasa-2020\YodaClock\YodaClock.WebApi\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
+C:\Users\Vaidotas\Documents\GitHub\nasa-2020\YodaClock\YodaClock.WebApi\bin\Debug\netcoreapp3.1\Newtonsoft.Json.Bson.dll
 C:\Users\Vaidotas\Documents\GitHub\nasa-2020\YodaClock\YodaClock.WebApi\obj\Debug\netcoreapp3.1\YodaClock.WebApi.csproj.CoreCompileInputs.cache
 C:\Users\Vaidotas\Documents\GitHub\nasa-2020\YodaClock\YodaClock.WebApi\obj\Debug\netcoreapp3.1\YodaClock.WebApi.MvcApplicationPartsAssemblyInfo.cs
 C:\Users\Vaidotas\Documents\GitHub\nasa-2020\YodaClock\YodaClock.WebApi\obj\Debug\netcoreapp3.1\YodaClock.WebApi.MvcApplicationPartsAssemblyInfo.cache

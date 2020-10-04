@@ -23,6 +23,7 @@
     <!-- {{body}} -->
     <!-- <b-button @click="clickAction">Click</b-button> -->
     <Modal />
+    <LoginRegisterModal />
   </div>
 </template>
 
@@ -30,10 +31,17 @@
 import CommunicationHelper from "../../Helpers/CommunicationHelper.js"
 import ProgressBar from "../ProgressBar.vue"
 import Tasks from "../Tasks.vue"
-import Modal from "./Modal.vue"
-import Suggestions from  "../Suggestions.vue"
+import Modal from "../Modals/Modal.vue"
+import LoginRegisterModal from "../Modals/LoginRegisterModal.vue"
+
 export default {
   name: 'MainPage',
+  components: {
+    Modal,
+    LoginRegisterModal,
+    ProgressBar,
+    Tasks,
+  },
   data() {
     return {
       communicationHelper: new CommunicationHelper(),
@@ -44,12 +52,6 @@ export default {
       var response = await this.communicationHelper.PostData("https://localhost:44334/", { name: "Oh boiiii"});
       this.body = response.name;
     }
-  },
-  components:{
-ProgressBar,
-Tasks,
-Modal,
-Suggestions
   }
 }
 </script>

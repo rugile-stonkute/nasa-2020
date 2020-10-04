@@ -45,10 +45,9 @@ namespace YodaClock.DataContext
         public DbSet<Plan> Plans { get; set; } // Plan
         public DbSet<PlanMealTime> PlanMealTimes { get; set; } // PlanMealTime
         public DbSet<Product> Products { get; set; } // Product
-        public DbSet<SleepingPlace> SleepingPlaces { get; set; } // SleepingPlace
         public DbSet<User> Users { get; set; } // User
         public DbSet<UserEnvironment> UserEnvironments { get; set; } // UserEnvironment
-        public DbSet<UserMealExercise> UserMealExercises { get; set; } // UserMealExerise
+        public DbSet<UserMealExercise> UserMealExercises { get; set; } // UserMealExercise
         public DbSet<UserNap> UserNaps { get; set; } // UserNap
         public DbSet<UserPrecondition> UserPreconditions { get; set; } // UserPrecondition
         public DbSet<UserProductMeal> UserProductMeals { get; set; } // UserProductMeal
@@ -82,7 +81,6 @@ namespace YodaClock.DataContext
             modelBuilder.ApplyConfiguration(new PlanConfiguration());
             modelBuilder.ApplyConfiguration(new PlanMealTimeConfiguration());
             modelBuilder.ApplyConfiguration(new ProductConfiguration());
-            modelBuilder.ApplyConfiguration(new SleepingPlaceConfiguration());
             modelBuilder.ApplyConfiguration(new UserConfiguration());
             modelBuilder.ApplyConfiguration(new UserEnvironmentConfiguration());
             modelBuilder.ApplyConfiguration(new UserMealExerciseConfiguration());
